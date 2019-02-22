@@ -2,6 +2,12 @@
 
 require_once("config.php");
 
+$root = new Usuario();
+
+$root->loadById(3);
+
+echo $root;
+
 //Carrega um usuário
 //$root = new Usuario();
 //$root->loadbyId(3);
@@ -37,11 +43,12 @@ $usuario->update("professor", "!@#$%¨&*");
 echo $usuario;
 */
 
-$usuario = new Usuario();
+/*$usuario = new Usuario();
 
 $usuario->loadById(7);
 
 $usuario->delete();
 
 echo $usuario;
+*/
  ?>
