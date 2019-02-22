@@ -6,7 +6,7 @@ class Usuario {
 	private $deslogin;
 	private $dessenha;
 	private $dtcadastro;
-
+	//gets, sets
 	public function getIdusuario(){
 		return $this->idusuario;
 	}
@@ -38,7 +38,7 @@ class Usuario {
 	public function setDtcadastro($value){
 		$this->dtcadastro = $value;
 	}
-	
+	//carrega id
 	public function loadById($id){
 
 		$sql = new Sql();
@@ -54,7 +54,7 @@ class Usuario {
 		}
 
 	}
-
+	//lista tabela
 	public static function getList(){
 
 		$sql = new Sql();
@@ -62,7 +62,7 @@ class Usuario {
 		return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin;");
 
 	}
-
+	//pesquisa no banco
 	public static function search($login){
 
 		$sql = new Sql();
@@ -72,7 +72,7 @@ class Usuario {
 		));
 
 	}
-
+	//valida pesquisa no banco
 	public function login($login, $password){
 
 		$sql = new Sql();
@@ -93,7 +93,7 @@ class Usuario {
 		}
 
 	}
-
+	//traz dados do usuario
 	public function setData($data){
 
 		$this->setIdusuario($data['idusuario']);
@@ -103,6 +103,7 @@ class Usuario {
 
 	}
 
+	//insere usuario no banco
 	public function insert(){
 
 		$sql = new Sql();
@@ -117,7 +118,7 @@ class Usuario {
 		}
 
 	}
-
+	//update na tabela
 	public function update($login, $password){
 
 		$this->setDeslogin($login);
@@ -132,7 +133,7 @@ class Usuario {
 		));
 
 	}
-
+	//delete na tabela
 	public function delete(){
 
 		$sql = new Sql();
@@ -147,14 +148,14 @@ class Usuario {
 		$this->setDtcadastro(new DateTime());
 
 	}
-
+	//pega o usuario e a senha via parametro
 	public function __construct($login = "", $password = ""){
 
 		$this->setDeslogin($login);
 		$this->setDessenha($password);
 
 	}
-
+	//devolve um json como retorno
 	public function __toString(){
 
 		return json_encode(array(
